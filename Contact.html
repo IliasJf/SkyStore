@@ -1,135 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact | SkyStore</title>
+  <meta name="description" content="Contact SkyStore: phone, WhatsApp and email, Monday to Saturday.">
+  <meta name="theme-color" content="#0d65d9">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Contact | SkyStore">
+  <meta property="og:description" content="Contact SkyStore: phone, WhatsApp and email, Monday to Saturday.">
+  <meta property="og:image" content="https://iliasjf.github.io/SkyStore/img/og.jpg">
+  <meta property="og:url" content="https://iliasjf.github.io/SkyStore/Contact.html">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/data.js" defer></script>
+  <script src="js/app.js" defer></script>
+  <script src="js/contact.js" defer></script>
+</head>
 <body>
-
-    <div class="container">
-        <div class="navbar">
-            <div class="logo">
-                <a href="index.html"><img src="images/logo.png" width="125px"></a>
-            </div>
-            <nav>
-                <ul id="MenuItems">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="products.html">Products</a></li>
-                    <li><a href="About.html">About</a></li>
-                    <li><a href="Contact.html">Contact</a></li>
-                </ul>
-            </nav>
-            <a href="cart.html"><img src="images/cart.png" width="30px" height="30px"></a>
-            <a href="Account.html"><img src="images/user.png" width="30px" height="30px"></a>
-            <img src="images/menu.png" class="menu-icon" onclick="menutoggle()">
-        </div>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="topbar">
+    <p>Cash on delivery across Morocco. Free delivery from 500 DH.</p>
+  </div>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html" aria-label="SkyStore home">
+        <img src="img/logo.webp" alt="SkyStore" width="150" height="45">
+      </a>
+      <nav class="site-nav" aria-label="Main">
+        <ul id="site-menu" class="nav-list"><li><a class="nav-link" href="index.html">Home</a></li><li><a class="nav-link" href="products.html">Shop</a></li><li><a class="nav-link" href="About.html">About</a></li><li><a class="nav-link" href="Contact.html">Contact</a></li></ul>
+      </nav>
+      <form class="header-search" action="products.html" role="search">
+        <label class="sr-only" for="header-q">Search products</label>
+        <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/></svg>
+        <input id="header-q" name="q" type="search" placeholder="Search tees, shoes, watches…" autocomplete="off">
+      </form>
+      <div class="header-actions">
+        <a class="icon-link" href="Account.html" aria-label="Account"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8.5" r="3.8"/><path d="M4.5 20c1.2-3.6 4-5.5 7.5-5.5s6.3 1.9 7.5 5.5"/></svg></a>
+        <a class="icon-link" href="wishlist.html" aria-label="Wishlist"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19s-7-4.4-9.2-8.6C1.3 7.4 3 4 6.4 4c2 0 3.3 1.1 4 2.3h3.2C14.3 5.1 15.6 4 17.6 4 21 4 22.7 7.4 21.2 10.4 19 14.6 12 19 12 19z"/></svg><span class="count" data-wish-count hidden>0</span></a>
+        <a class="icon-link" href="cart.html" data-cart-label aria-label="Cart"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span class="count" data-cart-count hidden>0</span></a>
+        <button type="button" class="icon-link menu-toggle" aria-expanded="false" aria-controls="site-menu" aria-label="Menu"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      </div>
     </div>
+  </header>
+  <main id="main" tabindex="-1">
 
-
-    <section class="location">
-        <h2 class="title">Contact Us</h2>
-        <iframe
-            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13296.532074347579!2d-7.706821!3d33.5758954!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb540923b5bdf10fb!2sMorocco%20Mall!5e0!3m2!1sen!2sma!4v1626962457477!5m2!1sen!2sma"
-            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    <section class="page-head container">
+      <h1>Contact us</h1>
+      <p class="page-lead">A question about a size, an order or a delivery? We answer within a day.</p>
     </section>
-    <section class="contact-us">
-        <div class="row">
-            <div class="contact-col">
-                <div>
-                    <i class="fas fa-home"></i>
-                    <span>
-                        <h5>Sidi Abderrahmane, Boulevard de Biarritz</h5>
-                        <p>Casablanca, Maroc</p>
-                    </span>
-                </div>
-                <div>
-                    <i class="fas fa-phone"></i>
-                    <span>
-                        <h5>+212 801 00 12 30</h5>
-                        <p>Monday to Saturday, 10AM to 6PM</p>
-                    </span>
-                </div>
-                <div>
-                    <i class="fas fa-envelope"></i>
-                    <span>
-                        <h5>RedStore-info@gmail.com</h5>
-                        <p>Email us your query</p>
-                    </span>
-                </div>
-            </div>
-            <div class="contact-col">
-                <form action="">
-                    <input type="text" name="name" placeholder="Name" class="box" required>
-                    <input type="email" name="email" placeholder="Email" class="box" required>
-                    <input type="text" name="subject" placeholder="Subject" class="box" required>
-                    <textarea rows="8" name="message" placeholder="Message" class="box" required></textarea>
-                    <button type="submit" class="btn-msg">Send Message</button>
-                </form>
-            </div>
+    <div class="container contact">
+      <ul class="contact-info">
+        <li><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span><strong>Morocco Mall area</strong>Boulevard de Biarritz, Casablanca</span></li>
+        <li><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h3l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v3a3 3 0 0 1-3 3A16 16 0 0 1 3 6a3 3 0 0 1 3-3z"/></svg><span><strong>+212 5 22 00 00 00</strong>Sample number for the demo</span></li>
+        <li><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><span><strong>hello@skystore.ma</strong>Sample address for the demo</span></li>
+        <li><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg><span><strong>Monday to Saturday</strong>10:00 to 18:00</span></li>
+      </ul>
+      <form class="contact-form" id="contact-form" novalidate>
+        <div class="field-row">
+          <div class="field">
+            <label for="m-name">Name</label>
+            <input id="m-name" name="name" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="m-email">Email</label>
+            <input id="m-email" name="email" type="email" autocomplete="email" required>
+          </div>
         </div>
-    </section>
-
-
-    <div class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="footer-col-1">
-                    <h3>Safe Checkout</h3>
-                    <p>Guaratnteed Safe Checkout</p>
-                    <div class="app-logo">
-                        <img src="images/Safecheckout.png">
-                    </div>
-                </div>
-                <div class="footer-col-2">
-                    <img src="images/logo-white.png">
-                    <p>Our Purpose Is To Sustainably Make the Pleasure and Benfits of Sports Accessible to the Many.</p>
-                </div>
-                <div class="footer-col-3">
-                    <h3>Useful Links</h3>
-                    <ul>
-                        <li>Coupons</li>
-                        <li>Blog Post</li>
-                        <li>Return Policy</li>
-                        <li>Join Affiliate</li>
-                    </ul>
-                </div>
-                <div class="footer-col-4">
-                    <h3>Follow Us</h3>
-                    <ul>
-                        <li>Facebook</li>
-                        <li>Twitter</li>
-                        <li>Instagram</li>
-                        <li>Youtube</li>
-                    </ul>
-                </div>
-            </div>
-            <hr>
-            <div class="credit"> Created By <span> Skiadroem </span> | All Rights Reserved </div>
+        <div class="field">
+          <label for="m-subject">Subject</label>
+          <select id="m-subject" name="subject">
+            <option>Question about a product</option>
+            <option>My order</option>
+            <option>Exchange or return</option>
+            <option>Something else</option>
+          </select>
         </div>
+        <div class="field">
+          <label for="m-message">Message</label>
+          <textarea id="m-message" name="message" rows="6" required></textarea>
+        </div>
+        <button type="submit" class="btn">Send message</button>
+        <p class="form-success" id="contact-success" role="status" hidden></p>
+      </form>
     </div>
-
-
-    <script>
-        var MenuItems = document.getElementById("MenuItems");
-
-        MenuItems.style.maxHeight = "0px";
-
-        function menutoggle() {
-            if (MenuItems.style.maxHeight == "0px") {
-                MenuItems.style.maxHeight = "200px";
-            }
-            else {
-                MenuItems.style.maxHeight = "0px";
-            }
-        }
-    </script>
+    <section class="container map" aria-label="Map">
+      <iframe title="Map of the Morocco Mall area in Casablanca" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13296.532074347579!2d-7.706821!3d33.5758954!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb540923b5bdf10fb!2sMorocco%20Mall!5e0!3m2!1sen!2sma!4v1626962457477!5m2!1sen!2sma" width="1200" height="380" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img src="img/logo-white.webp" alt="SkyStore" width="150" height="45" loading="lazy">
+        <p>Sportswear, shoes and accessories, delivered across Morocco. You pay cash when your parcel arrives.</p>
+      </div>
+      <div>
+        <h2 class="footer-title">Shop</h2>
+        <ul class="footer-links"><li><a href="products.html?cat=tshirts">T-shirts</a></li><li><a href="products.html?cat=outerwear">Jackets</a></li><li><a href="products.html?cat=pants">Pants</a></li><li><a href="products.html?cat=shoes">Shoes</a></li><li><a href="products.html?cat=accessories">Accessories</a></li></ul>
+      </div>
+      <div>
+        <h2 class="footer-title">Help</h2>
+        <ul class="footer-links">
+          <li><a href="About.html#delivery">Delivery and returns</a></li>
+          <li><a href="About.html#faq">Questions</a></li>
+          <li><a href="Contact.html">Contact us</a></li>
+          <li><a href="Account.html">My orders</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="footer-title">Pay at the door</h2>
+        <p class="footer-pay"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/></svg> Cash on delivery</p>
+        <p class="footer-note">Delivery in 24 to 72 hours depending on your city.</p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; <span data-year>2026</span> SkyStore. Demo store built by <a href="https://iliasjf.github.io/">Ilias Jafaoui</a>: no real orders are sent.</p>
+      <p><a href="https://github.com/IliasJf/SkyStore">Source code on GitHub</a></p>
+    </div>
+  </footer>
 </body>
-
 </html>

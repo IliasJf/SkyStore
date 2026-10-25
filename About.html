@@ -1,127 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About | SkyStore</title>
+  <meta name="description" content="About SkyStore, delivery times, exchanges and answers to common questions.">
+  <meta name="theme-color" content="#0d65d9">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="About | SkyStore">
+  <meta property="og:description" content="About SkyStore, delivery times, exchanges and answers to common questions.">
+  <meta property="og:image" content="https://iliasjf.github.io/SkyStore/img/og.jpg">
+  <meta property="og:url" content="https://iliasjf.github.io/SkyStore/About.html">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/data.js" defer></script>
+  <script src="js/app.js" defer></script>
+</head>
 <body>
-
-    <div class="container">
-        <div class="navbar">
-            <div class="logo">
-                <a href="index.html"><img src="images/logo.png" width="125px"></a>
-            </div>
-            <nav>
-                <ul id="MenuItems">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="products.html">Products</a></li>
-                    <li><a href="About.html">About</a></li>
-                    <li><a href="Contact.html">Contact</a></li>
-                </ul>
-            </nav>
-            <a href="cart.html"><img src="images/cart.png" width="30px" height="30px"></a>
-            <a href="Account.html"><img src="images/user.png" width="30px" height="30px"></a>
-            <img src="images/menu.png" class="menu-icon" onclick="menutoggle()">
-        </div>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="topbar">
+    <p>Cash on delivery across Morocco. Free delivery from 500 DH.</p>
+  </div>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html" aria-label="SkyStore home">
+        <img src="img/logo.webp" alt="SkyStore" width="150" height="45">
+      </a>
+      <nav class="site-nav" aria-label="Main">
+        <ul id="site-menu" class="nav-list"><li><a class="nav-link" href="index.html">Home</a></li><li><a class="nav-link" href="products.html">Shop</a></li><li><a class="nav-link" href="About.html">About</a></li><li><a class="nav-link" href="Contact.html">Contact</a></li></ul>
+      </nav>
+      <form class="header-search" action="products.html" role="search">
+        <label class="sr-only" for="header-q">Search products</label>
+        <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/></svg>
+        <input id="header-q" name="q" type="search" placeholder="Search tees, shoes, watches…" autocomplete="off">
+      </form>
+      <div class="header-actions">
+        <a class="icon-link" href="Account.html" aria-label="Account"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8.5" r="3.8"/><path d="M4.5 20c1.2-3.6 4-5.5 7.5-5.5s6.3 1.9 7.5 5.5"/></svg></a>
+        <a class="icon-link" href="wishlist.html" aria-label="Wishlist"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19s-7-4.4-9.2-8.6C1.3 7.4 3 4 6.4 4c2 0 3.3 1.1 4 2.3h3.2C14.3 5.1 15.6 4 17.6 4 21 4 22.7 7.4 21.2 10.4 19 14.6 12 19 12 19z"/></svg><span class="count" data-wish-count hidden>0</span></a>
+        <a class="icon-link" href="cart.html" data-cart-label aria-label="Cart"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span class="count" data-cart-count hidden>0</span></a>
+        <button type="button" class="icon-link menu-toggle" aria-expanded="false" aria-controls="site-menu" aria-label="Menu"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      </div>
     </div>
+  </header>
+  <main id="main" tabindex="-1">
 
-
-    <section class="about-us">
-        <h2 class="title">About Us</h2>
-        <div class="row">
-            <div class="about-col">
-                <h1>We are the world's largest store</h1>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aspernatur expedita ratione veritatis non
-                    quasi reprehenderit consequuntur beatae repudiandae dolorem modi! At totam corporis enim voluptatem
-                    quisquam. Id dolore in repudiandae?</p>
-                <a href="index.html" class="btn">Learn More &#8594;</a>
-            </div>
-            <div class="about-col">
-                <img src="images/about.jpg">
-            </div>
-        </div>
+    <section class="container about">
+      <div class="about-text">
+        <h1>Sportswear for every day, delivered to your door.</h1>
+        <p class="page-lead">SkyStore sells training clothes, shoes and watches online across Morocco. Our idea is simple: good basics at fair prices, and you only pay when the parcel is in your hands.</p>
+      </div>
+      <img src="img/cat-pants.webp" alt="Track pants and white sneakers on a stone step" width="550" height="604" loading="lazy">
     </section>
 
+    <ul class="perks container" aria-label="Why order from SkyStore">
+      <li><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/></svg><span><strong>Cash on delivery</strong>Pay when your parcel arrives</span></li>
+      <li><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="17.5" r="1.6"/><circle cx="17.5" cy="17.5" r="1.6"/></svg><span><strong>24 to 72 hour delivery</strong>To every city in Morocco</span></li>
+      <li><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="9" width="16" height="11" rx="1"/><path d="M12 9v11M4 13h16M12 9c-2-4-6-4-6-1.5S9 9 12 9zm0 0c2-4 6-4 6-1.5S15 9 12 9z"/></svg><span><strong>Free delivery from 500 DH</strong>30 DH below that</span></li>
+      <li><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 7L4 12l5 5"/><path d="M4 12h11a5 5 0 0 1 0 10h-2"/></svg><span><strong>7-day exchange</strong>Wrong size? We swap it</span></li>
+    </ul>
 
-    <section class="services">
-        <div class="services-box">
-            <i class="fas fa-shipping-fast"></i>
-            <span>Free Shipping</span>
-            <p>Free Shipping for all US order</p>
-        </div>
-        <div class="services-box">
-            <i class="fas fa-headphones-alt"></i>
-            <span>Support 24/7</span>
-            <p>We support 24h a day</p>
-        </div>
-        <div class="services-box">
-            <i class="fas fa-sync"></i>
-            <span>100% Money Back</span>
-            <p>You have 30 days to Return</p>
-        </div>
+    <section class="section container prose" id="delivery" aria-labelledby="delivery-title">
+      <h2 id="delivery-title">Delivery and returns</h2>
+      <table class="table">
+        <caption class="sr-only">Delivery times and prices</caption>
+        <thead><tr><th scope="col">Where</th><th scope="col">Time</th><th scope="col">Price</th></tr></thead>
+        <tbody>
+          <tr><td>Casablanca, Rabat, Ben Slimane</td><td>24 hours</td><td>30 DH, free from 500 DH</td></tr>
+          <tr><td>Marrakech, Fès, Tanger, Meknès, Kénitra</td><td>48 hours</td><td>30 DH, free from 500 DH</td></tr>
+          <tr><td>Other cities</td><td>48 to 72 hours</td><td>30 DH, free from 500 DH</td></tr>
+        </tbody>
+      </table>
+      <p>Open the parcel in front of the courier. If the size is wrong, contact us within 7 days and we exchange it for free. Items must be unworn, with their labels.</p>
     </section>
 
-
-    <div class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="footer-col-1">
-                    <h3>Safe Checkout</h3>
-                    <p>Guaratnteed Safe Checkout</p>
-                    <div class="app-logo">
-                        <img src="images/Safecheckout.png">
-                    </div>
-                </div>
-                <div class="footer-col-2">
-                    <img src="images/logo-white.png">
-                    <p>Our Purpose Is To Sustainably Make the Pleasure and Benfits of Sports Accessible to the Many.</p>
-                </div>
-                <div class="footer-col-3">
-                    <h3>Useful Links</h3>
-                    <ul>
-                        <li>Coupons</li>
-                        <li>Blog Post</li>
-                        <li>Return Policy</li>
-                        <li>Join Affiliate</li>
-                    </ul>
-                </div>
-                <div class="footer-col-4">
-                    <h3>Follow Us</h3>
-                    <ul>
-                        <li>Facebook</li>
-                        <li>Twitter</li>
-                        <li>Instagram</li>
-                        <li>Youtube</li>
-                    </ul>
-                </div>
-            </div>
-            <hr>
-            <div class="credit"> Created By <span> Skiadroem </span> | All Rights Reserved </div>
-        </div>
+    <section class="section container prose" id="faq" aria-labelledby="faq-title">
+      <h2 id="faq-title">Questions</h2>
+      <details><summary>Do I need an account to order?</summary><p>No. Your name, phone number and address are enough. An account only keeps your order history.</p></details>
+      <details><summary>How do I pay?</summary><p>In cash, to the courier, when your parcel arrives. We never ask for your card.</p></details>
+      <details><summary>How do I choose my size?</summary><p>Every clothing and shoe page has a size guide with measurements in centimetres. Between two sizes, take the bigger one.</p></details>
+      <details><summary>Can I cancel an order?</summary><p>Yes. Reply to our confirmation call or write to us on WhatsApp before the parcel leaves.</p></details>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img src="img/logo-white.webp" alt="SkyStore" width="150" height="45" loading="lazy">
+        <p>Sportswear, shoes and accessories, delivered across Morocco. You pay cash when your parcel arrives.</p>
+      </div>
+      <div>
+        <h2 class="footer-title">Shop</h2>
+        <ul class="footer-links"><li><a href="products.html?cat=tshirts">T-shirts</a></li><li><a href="products.html?cat=outerwear">Jackets</a></li><li><a href="products.html?cat=pants">Pants</a></li><li><a href="products.html?cat=shoes">Shoes</a></li><li><a href="products.html?cat=accessories">Accessories</a></li></ul>
+      </div>
+      <div>
+        <h2 class="footer-title">Help</h2>
+        <ul class="footer-links">
+          <li><a href="About.html#delivery">Delivery and returns</a></li>
+          <li><a href="About.html#faq">Questions</a></li>
+          <li><a href="Contact.html">Contact us</a></li>
+          <li><a href="Account.html">My orders</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="footer-title">Pay at the door</h2>
+        <p class="footer-pay"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/></svg> Cash on delivery</p>
+        <p class="footer-note">Delivery in 24 to 72 hours depending on your city.</p>
+      </div>
     </div>
-
-
-    <script>
-        var MenuItems = document.getElementById("MenuItems");
-
-        MenuItems.style.maxHeight = "0px";
-
-        function menutoggle() {
-            if (MenuItems.style.maxHeight == "0px") {
-                MenuItems.style.maxHeight = "200px";
-            }
-            else {
-                MenuItems.style.maxHeight = "0px";
-            }
-        }
-    </script>
+    <div class="container footer-bottom">
+      <p>&copy; <span data-year>2026</span> SkyStore. Demo store built by <a href="https://iliasjf.github.io/">Ilias Jafaoui</a>: no real orders are sent.</p>
+      <p><a href="https://github.com/IliasJf/SkyStore">Source code on GitHub</a></p>
+    </div>
+  </footer>
 </body>
-
 </html>

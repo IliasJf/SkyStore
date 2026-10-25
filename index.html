@@ -1,505 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SkyStore</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SkyStore | Sportswear delivered across Morocco</title>
+  <meta name="description" content="Sportswear, shoes and watches delivered across Morocco. Order online and pay cash on delivery.">
+  <meta name="theme-color" content="#0d65d9">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="SkyStore | Sportswear delivered across Morocco">
+  <meta property="og:description" content="Sportswear, shoes and watches delivered across Morocco. Order online and pay cash on delivery.">
+  <meta property="og:image" content="https://iliasjf.github.io/SkyStore/img/og.jpg">
+  <meta property="og:url" content="https://iliasjf.github.io/SkyStore/">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/data.js" defer></script>
+  <script src="js/app.js" defer></script>
+  <script src="js/home.js" defer></script>
+</head>
 <body>
-    <div class="header">
-        <div class="container">
-            <div class="navbar">
-                <div class="logo">
-                    <a href="index.html"><img src="images/logo-white.png" width="125px"></a>
-                </div>
-                <nav>
-                    <ul id="MenuItems">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="products.html">Products</a></li>
-                        <li><a href="About.html">About</a></li>
-                        <li><a href="Contact.html">Contact</a></li>
-                    </ul>
-                </nav>
-                <a href="cart.html"><img src="images/cart.png" width="30px" height="30px"></a>
-                <a href="Account.html"><img src="images/user.png" width="30px" height="30px"></a>
-                <img src="images/menu.png" class="menu-icon" onclick="menutoggle()">
-            </div>
-            <div class="row">
-                <div class="col-2">
-                    <h1>Give Your Workout<br>A New Style!</h1>
-                    <p>Success isn't always about greatness. It's about consistency.<br>Consistent hard work gains
-                        success. Greatness will come.</p>
-                    <a href="products.html" class="btn">Shop Now &#8594;</a>
-                </div>
-                <div class="col-2">
-                    <img src="images/image1.png">
-                </div>
-            </div>
-        </div>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="topbar">
+    <p>Cash on delivery across Morocco. Free delivery from 500 DH.</p>
+  </div>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html" aria-label="SkyStore home">
+        <img src="img/logo.webp" alt="SkyStore" width="150" height="45">
+      </a>
+      <nav class="site-nav" aria-label="Main">
+        <ul id="site-menu" class="nav-list"><li><a class="nav-link" href="index.html">Home</a></li><li><a class="nav-link" href="products.html">Shop</a></li><li><a class="nav-link" href="About.html">About</a></li><li><a class="nav-link" href="Contact.html">Contact</a></li></ul>
+      </nav>
+      <form class="header-search" action="products.html" role="search">
+        <label class="sr-only" for="header-q">Search products</label>
+        <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/></svg>
+        <input id="header-q" name="q" type="search" placeholder="Search tees, shoes, watches…" autocomplete="off">
+      </form>
+      <div class="header-actions">
+        <a class="icon-link" href="Account.html" aria-label="Account"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8.5" r="3.8"/><path d="M4.5 20c1.2-3.6 4-5.5 7.5-5.5s6.3 1.9 7.5 5.5"/></svg></a>
+        <a class="icon-link" href="wishlist.html" aria-label="Wishlist"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19s-7-4.4-9.2-8.6C1.3 7.4 3 4 6.4 4c2 0 3.3 1.1 4 2.3h3.2C14.3 5.1 15.6 4 17.6 4 21 4 22.7 7.4 21.2 10.4 19 14.6 12 19 12 19z"/></svg><span class="count" data-wish-count hidden>0</span></a>
+        <a class="icon-link" href="cart.html" data-cart-label aria-label="Cart"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span class="count" data-cart-count hidden>0</span></a>
+        <button type="button" class="icon-link menu-toggle" aria-expanded="false" aria-controls="site-menu" aria-label="Menu"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      </div>
     </div>
+  </header>
+  <main id="main" tabindex="-1">
 
-    <div class="categories">
-        <div class="small-container">
-            <div class="row">
-                <div class="col-3">
-                    <img src="images/T-shirts.jpg">
-                </div>
-                <div class="col-3">
-                    <img src="images/Mugs.jpg">
-                </div>
-                <div class="col-3">
-                    <img src="images/Hats.jpg">
-                </div>
-                <div class="col-3">
-                    <img src="images/Hoodies.jpg">
-                </div>
-                <div class="col-3">
-                    <img src="images/Badges.jpg">
-                </div>
-                <div class="col-3">
-                    <img src="images/Phone Cases.jpg">
-                </div>
-            </div>
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <p class="hero-kicker">New season, new kit</p>
+          <h1>Give your workout a new style.</h1>
+          <p class="hero-lead">Tees, shoes and watches for training and every day. Order in two minutes and pay cash at your door.</p>
+          <div class="hero-actions">
+            <a class="btn" href="products.html">Shop now</a>
+            <a class="btn btn--ghost" href="products.html?cat=shoes">See the shoes</a>
+          </div>
         </div>
-    </div>
-
-
-    <div class="small-container">
-        <h2 class="title">Featured Products</h2>
-        <div class="row">
-            <div class="product">
-                <div class="img-container">
-                    <a href="products-details.html"><img src="images/product-1.jpg"></a>
-                    <div class="addCart">
-                        <a href="products-details.html"><i class="far fa-shopping-cart"></i></a>
-                    </div>
-                </div>
-                <div class="bottom">
-                    <a href="products-details.html">
-                        <h4>Red Printed T-shirt</h4>
-                    </a>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                    <p class="price">$50.00</p>
-                </div>
-            </div>
-            <div class="product">
-                <div class="img-container">
-                    <a href="products-details2.html"><img src="images/product-2.jpg"></a>
-                    <div class="addCart">
-                        <i class="far fa-shopping-cart"></i>
-                    </div>
-                </div>
-                <div class="bottom">
-                    <a href="products-details.html">
-                        <h4>Red Printed T-shirt</h4>
-                    </a>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                    <p class="price">$50.00</p>
-                </div>
-            </div>
-            <div class="product">
-                <div class="img-container">
-                    <a href="products-details.html"><img src="images/product-3.jpg"></a>
-                    <div class="addCart">
-                        <i class="far fa-shopping-cart"></i>
-                    </div>
-                </div>
-                <div class="bottom">
-                    <a href="products-details.html">
-                        <h4>Red Printed T-shirt</h4>
-                    </a>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                    <p class="price">$50.00</p>
-                </div>
-            </div>
-            <div class="product">
-                <div class="img-container">
-                    <a href="products-details.html"><img src="images/product-4.jpg"></a>
-                    <div class="addCart">
-                        <i class="far fa-shopping-cart"></i>
-                    </div>
-                </div>
-                <div class="bottom">
-                    <a href="products-details.html">
-                        <h4>Red Printed T-shirt</h4>
-                    </a>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                    <p class="price">$50.00</p>
-                </div>
-            </div>
+        <div class="hero-media">
+          <img src="img/hero.webp" alt="Two football players jumping for the ball" width="1100" height="949" fetchpriority="high">
         </div>
-
-        <h2 class="title">Latest Products</h2>
-        <div class="row">
-            <div class="product">
-                <div class="img-container">
-                    <a href="products-details.html"><img src="images/product-5.jpg"></a>
-                    <div class="addCart">
-                        <i class="far fa-shopping-cart"></i>
-                    </div>
-                </div>
-                <div class="bottom">
-                    <a href="products-details.html">
-                        <h4>Red Printed T-shirt</h4>
-                    </a>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                    <p class="price">$50.00</p>
-                </div>
-            </div>
-            <div class="product">
-                <div class="img-container">
-                    <a href="products-details.html"><img src="images/product-6.jpg"></a>
-                    <div class="addCart">
-                        <i class="far fa-shopping-cart"></i>
-                    </div>
-                </div>
-                <div class="bottom">
-                    <a href="products-details.html">
-                        <h4>Red Printed T-shirt</h4>
-                    </a>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                    <p class="price">$50.00</p>
-                </div>
-            </div>
-            <div class="product">
-                <div class="img-container">
-                    <a href="products-details.html"><img src="images/product-7.jpg"></a>
-                    <div class="addCart">
-                        <i class="far fa-shopping-cart"></i>
-                    </div>
-                </div>
-                <div class="bottom">
-                    <a href="products-details.html">
-                        <h4>Red Printed T-shirt</h4>
-                    </a>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                    <p class="price">$50.00</p>
-                </div>
-            </div>
-            <div class="product">
-                <div class="img-container">
-                    <a href="products-details.html"><img src="images/product-8.jpg"></a>
-                    <div class="addCart">
-                        <i class="far fa-shopping-cart"></i>
-                    </div>
-                </div>
-                <div class="bottom">
-                    <a href="products-details.html">
-                        <h4>Red Printed T-shirt</h4>
-                    </a>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                    <p class="price">$50.00</p>
-                </div>
-            </div>
-            <div class="product">
-                <div class="img-container">
-                    <a href="products-details.html"><img src="images/product-9.jpg"></a>
-                    <div class="addCart">
-                        <i class="far fa-shopping-cart"></i>
-                    </div>
-                </div>
-                <div class="bottom">
-                    <a href="products-details.html">
-                        <h4>Red Printed T-shirt</h4>
-                    </a>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                    <p class="price">$50.00</p>
-                </div>
-            </div>
-            <div class="product">
-                <div class="img-container">
-                    <a href="products-details.html"><img src="images/product-10.jpg"></a>
-                    <div class="addCart">
-                        <i class="far fa-shopping-cart"></i>
-                    </div>
-                </div>
-                <div class="bottom">
-                    <a href="products-details.html">
-                        <h4>Red Printed T-shirt</h4>
-                    </a>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                    <p class="price">$50.00</p>
-                </div>
-            </div>
-            <div class="product">
-                <div class="img-container">
-                    <a href="products-details.html"><img src="images/product-11.jpg"></a>
-                    <div class="addCart">
-                        <i class="far fa-shopping-cart"></i>
-                    </div>
-                </div>
-                <div class="bottom">
-                    <a href="products-details.html">
-                        <h4>Red Printed T-shirt</h4>
-                    </a>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                    <p class="price">$50.00</p>
-                </div>
-            </div>
-            <div class="product">
-                <div class="img-container">
-                    <a href="products-details.html"><img src="images/product-12.jpg"></a>
-                    <div class="addCart">
-                        <i class="far fa-shopping-cart"></i>
-                    </div>
-                </div>
-                <div class="bottom">
-                    <a href="products-details.html">
-                        <h4>Red Printed T-shirt</h4>
-                    </a>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                    <p class="price">$50.00</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="offer">
-        <div class="small-container">
-            <div class="row">
-                <div class="col-2">
-                    <img src="images/exclusive.png" class="offer-img">
-                </div>
-                <div class="col-2">
-                    <p>Exlusively Available on SkyStore</p>
-                    <h1>Smart Band 4</h1>
-                    <small>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae, minus eos incidunt modi
-                        voluptate veniam nemo ab labore sed quaerat sequi beatae officiis eligendi similique ipsam
-                        ratione omnis quos corporis!</small><br>
-                    <a href="" class="btn">Buy Now &#8594;</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="testimonial">
-        <div class="small-container">
-            <div class="row">
-                <div class="col-3">
-                    <i class="fas fa-quote-left"></i>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque porro animi, quaerat ipsum sint,
-                        molestiae sunt distinctio dolorum modi error voluptatibus consequatur doloremque nulla obcaecati
-                        nostrum similique enim officia rem.</p>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                    <img src="images/user-1.png">
-                    <h3>Sean Parker</h3>
-                </div>
-                <div class="col-3">
-                    <i class="fas fa-quote-left"></i>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque porro animi, quaerat ipsum sint,
-                        molestiae sunt distinctio dolorum modi error voluptatibus consequatur doloremque nulla obcaecati
-                        nostrum similique enim officia rem.</p>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                    <img src="images/user-2.png">
-                    <h3>Mike Smith</h3>
-                </div>
-                <div class="col-3">
-                    <i class="fas fa-quote-left"></i>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque porro animi, quaerat ipsum sint,
-                        molestiae sunt distinctio dolorum modi error voluptatibus consequatur doloremque nulla obcaecati
-                        nostrum similique enim officia rem.</p>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                    <img src="images/user-3.png">
-                    <h3>Mabel Joe</h3>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <section class="services">
-        <div class="services-box">
-            <i class="fas fa-shipping-fast"></i>
-            <span>Free Shipping</span>
-            <p>Free Shipping for all US order</p>
-        </div>
-        <div class="services-box">
-            <i class="fas fa-headphones-alt"></i>
-            <span>Support 24/7</span>
-            <p>We support 24h a day</p>
-        </div>
-        <div class="services-box">
-            <i class="fas fa-sync"></i>
-            <span>100% Money Back</span>
-            <p>You have 30 days to Return</p>
-        </div>
+      </div>
     </section>
 
+    <ul class="perks container" aria-label="Why order from SkyStore">
+      <li><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/></svg><span><strong>Cash on delivery</strong>Pay when your parcel arrives</span></li>
+      <li><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="17.5" r="1.6"/><circle cx="17.5" cy="17.5" r="1.6"/></svg><span><strong>24 to 72 hour delivery</strong>To every city in Morocco</span></li>
+      <li><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="9" width="16" height="11" rx="1"/><path d="M12 9v11M4 13h16M12 9c-2-4-6-4-6-1.5S9 9 12 9zm0 0c2-4 6-4 6-1.5S15 9 12 9z"/></svg><span><strong>Free delivery from 500 DH</strong>30 DH below that</span></li>
+      <li><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 7L4 12l5 5"/><path d="M4 12h11a5 5 0 0 1 0 10h-2"/></svg><span><strong>7-day exchange</strong>Wrong size? We swap it</span></li>
+    </ul>
 
-    <div class="brands">
-        <div class="small-container">
-            <div class="row">
-                <div class="col-5">
-                    <img src="images/logo-godrej.png">
-                </div>
-                <div class="col-5">
-                    <img src="images/logo-oppo.png">
-                </div>
-                <div class="col-5">
-                    <img src="images/logo-coca-cola.png">
-                </div>
-                <div class="col-5">
-                    <img src="images/logo-paypal.png">
-                </div>
-                <div class="col-5">
-                    <img src="images/logo-philips.png">
-                </div>
-            </div>
+    <section class="section container" aria-labelledby="cats-title">
+      <div class="section-head">
+        <h2 id="cats-title">Shop by category</h2>
+        <a class="link-more" href="products.html">All products</a>
+      </div>
+      <div class="cat-grid">
+        <a class="cat" href="products.html?cat=shoes">
+          <img src="img/cat-shoes.webp" alt="" width="550" height="604" loading="lazy">
+          <span>Shoes</span>
+        </a>
+        <a class="cat" href="products.html?cat=pants">
+          <img src="img/cat-pants.webp" alt="" width="550" height="604" loading="lazy">
+          <span>Pants and joggers</span>
+        </a>
+        <a class="cat" href="products.html?cat=accessories">
+          <img src="img/cat-training.webp" alt="" width="550" height="604" loading="lazy">
+          <span>Watches and accessories</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="section container" aria-labelledby="best-title">
+      <div class="section-head">
+        <h2 id="best-title">Bestsellers</h2>
+        <a class="link-more" href="products.html?sort=popular">See more</a>
+      </div>
+      <div class="grid" id="bestsellers"></div>
+    </section>
+
+    <section class="offer" aria-labelledby="offer-title">
+      <div class="container offer-inner">
+        <img src="img/band.webp" alt="Fitness band with an orange strap showing the time" width="700" height="613" loading="lazy">
+        <div class="offer-text">
+          <p class="offer-kicker">Only on SkyStore</p>
+          <h2 id="offer-title">Fitness band</h2>
+          <p>Steps, heart rate and sleep on a colour screen. Up to 14 days on one charge, water resistant to 50 metres.</p>
+          <p class="offer-price">299 DH</p>
+          <div class="hero-actions">
+            <button type="button" class="btn" data-add="fitness-band">Add to cart</button>
+            <a class="btn btn--ghost-light" href="product.html?id=fitness-band">Details</a>
+          </div>
         </div>
+      </div>
+    </section>
+
+    <section class="section container" aria-labelledby="new-title">
+      <div class="section-head">
+        <h2 id="new-title">New in</h2>
+        <a class="link-more" href="products.html?sort=new">See more</a>
+      </div>
+      <div class="grid" id="new-in"></div>
+    </section>
+
+    <section class="section container steps" aria-labelledby="steps-title">
+      <h2 id="steps-title">How ordering works</h2>
+      <ol class="steps-list">
+        <li><span class="step-num">1</span><h3>Pick your size</h3><p>Not sure? Every product page has a size guide.</p></li>
+        <li><span class="step-num">2</span><h3>Order in two minutes</h3><p>Your name, phone and address. No card, no account needed.</p></li>
+        <li><span class="step-num">3</span><h3>Pay at the door</h3><p>We call to confirm, then deliver in 24 to 72 hours.</p></li>
+      </ol>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img src="img/logo-white.webp" alt="SkyStore" width="150" height="45" loading="lazy">
+        <p>Sportswear, shoes and accessories, delivered across Morocco. You pay cash when your parcel arrives.</p>
+      </div>
+      <div>
+        <h2 class="footer-title">Shop</h2>
+        <ul class="footer-links"><li><a href="products.html?cat=tshirts">T-shirts</a></li><li><a href="products.html?cat=outerwear">Jackets</a></li><li><a href="products.html?cat=pants">Pants</a></li><li><a href="products.html?cat=shoes">Shoes</a></li><li><a href="products.html?cat=accessories">Accessories</a></li></ul>
+      </div>
+      <div>
+        <h2 class="footer-title">Help</h2>
+        <ul class="footer-links">
+          <li><a href="About.html#delivery">Delivery and returns</a></li>
+          <li><a href="About.html#faq">Questions</a></li>
+          <li><a href="Contact.html">Contact us</a></li>
+          <li><a href="Account.html">My orders</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="footer-title">Pay at the door</h2>
+        <p class="footer-pay"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/></svg> Cash on delivery</p>
+        <p class="footer-note">Delivery in 24 to 72 hours depending on your city.</p>
+      </div>
     </div>
-
-
-    <div class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="footer-col-1">
-                    <h3>Safe Checkout</h3>
-                    <p>Guaratnteed Safe Checkout</p>
-                    <div class="app-logo">
-                        <img src="images/Safecheckout.png">
-                    </div>
-                </div>
-                <div class="footer-col-2">
-                    <img src="images/logo-white.png">
-                    <p>Our Purpose Is To Sustainably Make the Pleasure and Benfits of Sports Accessible to the Many.</p>
-                </div>
-                <div class="footer-col-3">
-                    <h3>Useful Links</h3>
-                    <ul>
-                        <li>Coupons</li>
-                        <li>Blog Post</li>
-                        <li>Return Policy</li>
-                        <li>Join Affiliate</li>
-                    </ul>
-                </div>
-                <div class="footer-col-4">
-                    <h3>Follow Us</h3>
-                    <ul>
-                        <li>Facebook</li>
-                        <li>Twitter</li>
-                        <li>Instagram</li>
-                        <li>Youtube</li>
-                    </ul>
-                </div>
-            </div>
-            <hr>
-            <div class="credit"> Created By <span> Skiadroem </span> | All Rights Reserved </div>
-        </div>
+    <div class="container footer-bottom">
+      <p>&copy; <span data-year>2026</span> SkyStore. Demo store built by <a href="https://iliasjf.github.io/">Ilias Jafaoui</a>: no real orders are sent.</p>
+      <p><a href="https://github.com/IliasJf/SkyStore">Source code on GitHub</a></p>
     </div>
-
-
-    <script>
-        var MenuItems = document.getElementById("MenuItems");
-
-        MenuItems.style.maxHeight = "0px";
-
-        function menutoggle() {
-            if (MenuItems.style.maxHeight == "0px") {
-                MenuItems.style.maxHeight = "200px";
-            }
-            else {
-                MenuItems.style.maxHeight = "0px";
-            }
-        }
-    </script>
+  </footer>
 </body>
-
 </html>

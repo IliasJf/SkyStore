@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wishlist | SkyStore</title>
+  <meta name="description" content="Products you saved on SkyStore.">
+  <meta name="theme-color" content="#0d65d9">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Wishlist | SkyStore">
+  <meta property="og:description" content="Products you saved on SkyStore.">
+  <meta property="og:image" content="https://iliasjf.github.io/SkyStore/img/og.jpg">
+  <meta property="og:url" content="https://iliasjf.github.io/SkyStore/wishlist.html">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/data.js" defer></script>
+  <script src="js/app.js" defer></script>
+  <script src="js/wishlist.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="topbar">
+    <p>Cash on delivery across Morocco. Free delivery from 500 DH.</p>
+  </div>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html" aria-label="SkyStore home">
+        <img src="img/logo.webp" alt="SkyStore" width="150" height="45">
+      </a>
+      <nav class="site-nav" aria-label="Main">
+        <ul id="site-menu" class="nav-list"><li><a class="nav-link" href="index.html">Home</a></li><li><a class="nav-link" href="products.html">Shop</a></li><li><a class="nav-link" href="About.html">About</a></li><li><a class="nav-link" href="Contact.html">Contact</a></li></ul>
+      </nav>
+      <form class="header-search" action="products.html" role="search">
+        <label class="sr-only" for="header-q">Search products</label>
+        <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/></svg>
+        <input id="header-q" name="q" type="search" placeholder="Search tees, shoes, watches…" autocomplete="off">
+      </form>
+      <div class="header-actions">
+        <a class="icon-link" href="Account.html" aria-label="Account"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8.5" r="3.8"/><path d="M4.5 20c1.2-3.6 4-5.5 7.5-5.5s6.3 1.9 7.5 5.5"/></svg></a>
+        <a class="icon-link" href="wishlist.html" aria-label="Wishlist"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19s-7-4.4-9.2-8.6C1.3 7.4 3 4 6.4 4c2 0 3.3 1.1 4 2.3h3.2C14.3 5.1 15.6 4 17.6 4 21 4 22.7 7.4 21.2 10.4 19 14.6 12 19 12 19z"/></svg><span class="count" data-wish-count hidden>0</span></a>
+        <a class="icon-link" href="cart.html" data-cart-label aria-label="Cart"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span class="count" data-cart-count hidden>0</span></a>
+        <button type="button" class="icon-link menu-toggle" aria-expanded="false" aria-controls="site-menu" aria-label="Menu"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      </div>
+    </div>
+  </header>
+  <main id="main" tabindex="-1">
+
+    <section class="page-head container">
+      <h1>Wishlist</h1>
+      <p class="page-lead">Products you saved. They stay here on this device.</p>
+    </section>
+    <section class="container" aria-label="Saved products">
+      <div class="grid" id="wish-grid"></div>
+      <div class="empty" id="wish-empty" hidden>
+        <h2>Nothing saved yet.</h2>
+        <p>Tap the heart on a product to keep it here.</p>
+        <a class="btn" href="products.html">Go to the shop</a>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img src="img/logo-white.webp" alt="SkyStore" width="150" height="45" loading="lazy">
+        <p>Sportswear, shoes and accessories, delivered across Morocco. You pay cash when your parcel arrives.</p>
+      </div>
+      <div>
+        <h2 class="footer-title">Shop</h2>
+        <ul class="footer-links"><li><a href="products.html?cat=tshirts">T-shirts</a></li><li><a href="products.html?cat=outerwear">Jackets</a></li><li><a href="products.html?cat=pants">Pants</a></li><li><a href="products.html?cat=shoes">Shoes</a></li><li><a href="products.html?cat=accessories">Accessories</a></li></ul>
+      </div>
+      <div>
+        <h2 class="footer-title">Help</h2>
+        <ul class="footer-links">
+          <li><a href="About.html#delivery">Delivery and returns</a></li>
+          <li><a href="About.html#faq">Questions</a></li>
+          <li><a href="Contact.html">Contact us</a></li>
+          <li><a href="Account.html">My orders</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="footer-title">Pay at the door</h2>
+        <p class="footer-pay"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/></svg> Cash on delivery</p>
+        <p class="footer-note">Delivery in 24 to 72 hours depending on your city.</p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; <span data-year>2026</span> SkyStore. Demo store built by <a href="https://iliasjf.github.io/">Ilias Jafaoui</a>: no real orders are sent.</p>
+      <p><a href="https://github.com/IliasJf/SkyStore">Source code on GitHub</a></p>
+    </div>
+  </footer>
+</body>
+</html>
