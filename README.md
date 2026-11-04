@@ -65,3 +65,7 @@ img/                Photos (WebP), logo, favicon
 ## Author
 
 Built by [Ilias Jafaoui](https://iliasjf.github.io/), front-end developer in Ben Slimane, Morocco.
+
+## License
+
+[MIT](LICENSE)
