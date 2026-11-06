@@ -1,5 +1,5 @@
-:HL["/SkyStore/_next/static/chunks/2q5it40afavt4.css","style"]
+:HL["/SkyStore/_next/static/chunks/36mgo2i9pyzpc.css","style"]
 :HL["/SkyStore/_next/static/media/ded494f396ddea9f-s.p.3j3x29wbycqkn.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 2:[["children",{"s":"__PAGE__","h":160}]]
 1:[["children",{"s":"wishlist","h":96,"c":"$Q2"}]]
-0:{"b":"Jod5T3Ge330DIFOYQ-ysD","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
+0:{"b":"DRQPs9r1eune5Cte9fVlw","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
