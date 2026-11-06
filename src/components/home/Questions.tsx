@@ -23,25 +23,28 @@ export const FAQ = [
   },
 ];
 
-/** One band per question, all answers open. */
+/** Questions as an accordion: the heading beside, answers open on demand. */
 export function Questions() {
   return (
-    <section aria-labelledby="faq-title">
-      <div data-reveal className="flex min-h-[30svh] items-end bg-accent px-[var(--margin)] pb-8 md:min-h-[40svh] md:pb-12">
-        <h2 id="faq-title" className="display text-[13vw] text-white md:text-[7vw]">
-          Before you order
-        </h2>
-      </div>
-      {FAQ.map((f, i) => (
-        <div key={f.q} className={i % 2 ? "bg-surface" : "bg-bg"}>
-          <div className="wrap grid gap-4 py-8 md:grid-cols-12 md:gap-8 md:py-14" data-reveal>
-            <h3 className="text-lead leading-tight font-extrabold tracking-[-0.03em] md:col-span-5">{f.q}</h3>
-            <p className="max-w-[60ch] leading-relaxed md:col-span-6 md:col-start-7">{f.a}</p>
-          </div>
+    <section aria-labelledby="faq-title" className="wrap grid gap-8 pt-[var(--gap-section)] pb-[var(--gap-section)] lg:grid-cols-[4fr_8fr] lg:gap-16">
+      <h2 id="faq-title" className="head" data-reveal>
+        Before you order
+      </h2>
+      <div>
+        <div className="border-t border-line">
+          {FAQ.map((f) => (
+            <details key={f.q} className="group border-b border-line">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-5 text-lead font-extrabold [&::-webkit-details-marker]:hidden">
+                {f.q}
+                <span aria-hidden="true" className="text-[1.5rem] leading-none font-normal transition-transform duration-300 group-open:rotate-45">
+                  +
+                </span>
+              </summary>
+              <p className="max-w-[62ch] pb-6 text-muted">{f.a}</p>
+            </details>
+          ))}
         </div>
-      ))}
-      <div className="bg-bg">
-        <p className="wrap py-10 md:py-14">
+        <p className="pt-8">
           More on delivery, returns and care on the{" "}
           <Link href="/about/" className="link font-semibold">
             delivery and returns page

@@ -1,69 +1,77 @@
 import Link from "next/link";
-import { Picture } from "./Picture";
+import { Logo } from "./Header";
 
-const MENU = [
-  { href: "/shop/", label: "Shop everything" },
-  { href: "/#today", label: "Dress for today's sky" },
-  { href: "/about/", label: "Delivery & returns" },
-  { href: "/wishlist/", label: "Saved items" },
-  { href: "/account/", label: "Your account" },
-  { href: "/cart/", label: "Cart" },
+const COLUMNS = [
+  {
+    title: "Shop",
+    links: [
+      { href: "/shop/", label: "Shop all" },
+      { href: "/shop/?cat=tops", label: "Tops" },
+      { href: "/shop/?cat=jackets", label: "Jackets" },
+      { href: "/shop/?cat=bottoms", label: "Bottoms" },
+      { href: "/shop/?cat=shoes", label: "Shoes" },
+      { href: "/shop/?cat=watches", label: "Watches" },
+    ],
+  },
+  {
+    title: "Help",
+    links: [
+      { href: "/about/", label: "Delivery & returns" },
+      { href: "/about/#questions-title", label: "Questions" },
+      { href: "/account/", label: "Your orders" },
+      { href: "mailto:hello@skystore.example?subject=Question%20about%20my%20order", label: "Email us" },
+    ],
+  },
+  {
+    title: "SkyStore",
+    links: [
+      { href: "/#today", label: "Dress for today's sky" },
+      { href: "/wishlist/", label: "Saved items" },
+      { href: "https://github.com/IliasJf/SkyStore", label: "Source code" },
+    ],
+  },
 ];
 
-/** The close: the Horizon Runner, closer than anywhere above, beside the menu set large. */
+/** A sports-brand close: the mark, the menus in columns, the small print below. */
 export function Footer() {
   return (
-    <footer className="grid bg-night text-night-ink md:min-h-svh md:grid-cols-2">
-      <div className="relative h-[50svh] overflow-hidden md:h-auto">
-        <Picture
-          name="detail-knit"
-          alt="Close-up of the Horizon Runner's knit upper, foam midsole and orange heel tab"
-          sizes="(min-width: 768px) 50vw, 100vw"
-          className="absolute inset-0 h-full w-full object-cover object-[30%_60%]"
-        />
-      </div>
-      <div className="flex flex-col px-5 pt-10 pb-8 md:px-[8%] md:pt-20">
-        <p className="text-body font-extrabold tracking-[-0.04em]">SkyStore</p>
-        <nav aria-label="Footer" className="mt-8" data-reveal>
-          <ul className="group/menu grid gap-3 md:gap-5">
-            {MENU.map((m) => (
-              <li key={m.href}>
-                <Link
-                  href={m.href}
-                  className="inline-block text-head leading-none font-extrabold tracking-[-0.04em] transition-[transform,color] duration-300 ease-[var(--ease-out)] group-hover/menu:text-[#8b98a8] hover:!text-night-ink hover:translate-x-3"
-                >
-                  {m.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
-        <div className="mt-16 grid gap-8 text-small sm:grid-cols-2">
-          <div>
-            <p className="font-semibold">Questions</p>
-            <p className="mt-1 text-[#b9c3cf]">
-              hello@skystore.example
-              <br />
-              Replies within a day, Monday to Saturday.
-            </p>
-          </div>
-          <div>
-            <p className="font-semibold">About this site</p>
-            <p className="mt-1 text-[#b9c3cf]">
-              A portfolio demo by{" "}
-              <a className="link" href="https://github.com/IliasJf">
-                Ilias Jafaoui
-              </a>
-              . No real orders or payments.
-            </p>
-          </div>
+    <footer className="bg-night text-night-ink">
+      <div className="wrap grid gap-12 pt-16 pb-10 lg:grid-cols-[5fr_7fr]">
+        <div data-reveal>
+          <Logo />
+          <p className="mt-5 max-w-[34ch] text-[#b5b5b5]">Running and training kit for every sky. Free shipping over $100, 30-day returns and free size swaps.</p>
         </div>
-        <p className="mt-auto pt-16 text-small text-[#b9c3cf]">
-          © 2026 SkyStore. Products and photographs were made for this demo with Figma AI. Cloud time-lapse:{" "}
+        <nav aria-label="Footer" className="grid grid-cols-2 gap-10 sm:grid-cols-3" data-reveal>
+          {COLUMNS.map((c) => (
+            <div key={c.title}>
+              <h2 className="font-extrabold uppercase">{c.title}</h2>
+              <ul className="mt-4 grid gap-2.5">
+                {c.links.map((l) => (
+                  <li key={l.label}>
+                    <Link href={l.href} className="text-[#b5b5b5] transition-colors hover:text-white">
+                      {l.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </nav>
+      </div>
+      <div className="wrap flex flex-col gap-3 border-t border-white/15 py-6 text-small text-[#9a9a9a] lg:flex-row lg:justify-between">
+        <p>
+          © 2026 SkyStore. A portfolio demo by{" "}
+          <a className="link" href="https://github.com/IliasJf">
+            Ilias Jafaoui
+          </a>
+          . No real orders or payments.
+        </p>
+        <p>
+          Photography made for this demo with Figma AI. Cloud time-lapse{" "}
           <a className="link" href="https://commons.wikimedia.org/wiki/File:Cumulus.ogv">
             “Cumulus”
           </a>
-          , CC BY 2.5, via Wikimedia Commons. Weather by{" "}
+          , CC BY 2.5. Weather by{" "}
           <a className="link" href="https://open-meteo.com">
             Open-Meteo
           </a>

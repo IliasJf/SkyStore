@@ -1,6 +1,12 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
 import { imgSrc, srcSet } from "@/lib/asset";
 
-/** A responsive picture from public/img. Lazy unless it's the first thing on screen. */
+/**
+ * A responsive picture from public/img. Lazy unless it's the first thing on
+ * screen, and it fades in once loaded instead of popping into an empty box.
+ */
 export function Picture({
   name,
   alt,
@@ -20,9 +26,17 @@ export function Picture({
   height?: number;
   style?: React.CSSProperties;
 }) {
+  const ref = useRef<HTMLImageElement>(null);
+  const [loaded, setLoaded] = useState(false);
+  // A cached image may finish before React attaches onLoad.
+  useEffect(() => {
+    if (ref.current?.complete) requestAnimationFrame(() => setLoaded(true));
+  }, [name]);
+
   return (
     // eslint-disable-next-line @next/next/no-img-element -- static export: our own srcset, no image server
     <img
+      ref={ref}
       src={imgSrc(name)}
       srcSet={srcSet(name)}
       sizes={sizes}
@@ -32,7 +46,8 @@ export function Picture({
       loading={priority ? "eager" : "lazy"}
       fetchPriority={priority ? "high" : undefined}
       decoding="async"
-      className={className}
+      onLoad={() => setLoaded(true)}
+      className={`pic ${loaded ? "is-loaded" : ""} ${className ?? ""}`}
       style={style}
     />
   );

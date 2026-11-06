@@ -15,10 +15,10 @@ export function CartView() {
 
   return (
     <div className="wrap pt-12 pb-[var(--gap-section)] md:pt-16">
-      <h1 className="display text-[clamp(3.5rem,9vw,8rem)]">Your cart</h1>
+      <h1 className="display text-[clamp(3.5rem,9vw,8rem)]">Your bag</h1>
       {!shop.cart.length ? (
-        <div className="mt-12 bg-surface p-10">
-          <p className="text-lead font-semibold">Your cart is empty.</p>
+        <div className="mt-12 rounded-[var(--radius)] bg-surface p-10">
+          <p className="text-lead font-semibold">Your bag is empty.</p>
           <p className="mt-2 text-muted">Saved items stay in your wishlist.</p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Link href="/shop/" className="btn btn--ink">
@@ -37,9 +37,9 @@ export function CartView() {
               if (!p) return null;
               const image = p.colours.find((c) => c.name === l.colour)?.image ?? p.colours[0].image;
               return (
-                <li key={`${l.slug}-${l.colour}-${l.size}`} className="grid grid-cols-[96px_1fr] gap-5 border-b-2 border-surface py-6 sm:grid-cols-[140px_1fr]">
+                <li key={`${l.slug}-${l.colour}-${l.size}`} className="grid grid-cols-[96px_1fr] gap-5 border-b border-line py-6 sm:grid-cols-[140px_1fr]">
                   <Link href={`/product/${p.slug}/`}>
-                    <Picture name={image} alt={`${p.name} in ${l.colour}`} sizes="140px" className="aspect-[4/5] w-full object-cover" width={140} height={175} />
+                    <Picture name={image} alt={`${p.name} in ${l.colour}`} sizes="140px" className="aspect-[4/5] w-full rounded-[var(--radius)] bg-tile object-cover" width={140} height={175} />
                   </Link>
                   <div className="flex flex-col">
                     <div className="flex justify-between gap-4">
@@ -72,7 +72,7 @@ export function CartView() {
             })}
           </ul>
 
-          <aside aria-labelledby="summary-title" className="self-start bg-surface p-6 lg:sticky lg:top-[calc(var(--header-h)+1.5rem)]">
+          <aside aria-labelledby="summary-title" className="self-start rounded-[var(--radius)] bg-surface p-6 lg:sticky lg:top-[calc(var(--header-h)+1.5rem)]">
             <h2 id="summary-title" className="text-lead font-extrabold tracking-[-0.03em]">
               Summary
             </h2>

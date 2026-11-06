@@ -101,7 +101,7 @@ export function Today() {
             <label htmlFor="city" className="sr-only">
               Your city
             </label>
-            <input id="city" className="input !border-[#5d6b7c] !bg-[#0c1a2e] !text-night-ink placeholder:text-[#8b98a8]" placeholder="Another city" value={query} onChange={(e) => setQuery(e.target.value)} autoComplete="address-level2" />
+            <input id="city" className="input !border-[#555555] !bg-[#1c1c1c] !text-night-ink placeholder:text-[#9a9a9a]" placeholder="Another city" value={query} onChange={(e) => setQuery(e.target.value)} autoComplete="address-level2" />
             <button className="btn shrink-0" type="submit">
               Check
             </button>
@@ -116,7 +116,7 @@ export function Today() {
                   type="button"
                   aria-pressed={preset === p.label}
                   onClick={() => setPreset(preset === p.label ? null : p.label)}
-                  className="min-h-11 bg-[#16263d] px-4 font-semibold transition-[background-color,transform] duration-150 hover:bg-[#22385a] active:scale-95 aria-pressed:bg-night-ink aria-pressed:text-night"
+                  className="min-h-11 rounded-full bg-[#2a2a2a] px-4 font-semibold transition-[background-color,transform] duration-150 hover:bg-[#3a3a3a] active:scale-95 aria-pressed:bg-night-ink aria-pressed:text-night"
                 >
                   {p.label}
                 </button>
@@ -127,14 +127,14 @@ export function Today() {
 
         <div>
           <h3 className="sr-only">Today&rsquo;s picks</h3>
-          <ul className="grid gap-px" key={picks.map((p) => p.product.slug).join()}>
+          <ul className="grid gap-2" key={picks.map((p) => p.product.slug).join()}>
             {picks.map(({ product, why }, i) => (
               <li key={product.slug} className="animate-[rise_480ms_var(--ease-out)_both]" style={{ animationDelay: `${i * 70}ms` }}>
-                <Link href={`/product/${product.slug}/`} className="group grid grid-cols-[88px_1fr_auto] items-center gap-5 bg-[#0c1a2e] p-3 pe-5 transition-colors duration-200 hover:bg-[#16263d] sm:grid-cols-[112px_1fr_auto]">
+                <Link href={`/product/${product.slug}/`} className="group grid grid-cols-[88px_1fr_auto] items-center gap-5 rounded-[var(--radius)] bg-[#1c1c1c] p-3 pe-5 transition-colors duration-200 hover:bg-[#2a2a2a] sm:grid-cols-[112px_1fr_auto]">
                   <Picture name={product.colours[0].image} alt={product.name} sizes="112px" className="aspect-[4/5] w-full object-cover" width={112} height={140} />
                   <span>
                     <span className="block text-lead font-extrabold tracking-[-0.03em]">{product.name}</span>
-                    <span className="block text-[#b9c3cf]">{why.charAt(0).toUpperCase() + why.slice(1)}</span>
+                    <span className="block text-[#b5b5b5]">{why.charAt(0).toUpperCase() + why.slice(1)}</span>
                   </span>
                   <span className="text-right">
                     <Price usd={product.price} className="block font-semibold" />
@@ -144,7 +144,7 @@ export function Today() {
               </li>
             ))}
             {!picks.length &&
-              [0, 1, 2, 3].map((i) => <li key={i} className="h-[136px] bg-[#0c1a2e] sm:h-[164px]" aria-hidden="true" />)}
+              [0, 1, 2, 3].map((i) => <li key={i} className="h-[136px] bg-[#1c1c1c] sm:h-[164px]" aria-hidden="true" />)}
           </ul>
         </div>
       </div>

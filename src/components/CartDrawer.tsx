@@ -28,14 +28,14 @@ export function CartDrawer() {
       onClose={() => openCart(false)}
       onClick={(e) => e.target === ref.current && openCart(false)}
       aria-labelledby="cart-title"
-      /* taste-skill-ignore: dialog */ className="fixed inset-y-0 right-0 left-auto m-0 h-dvh max-h-none w-[min(28rem,100vw)] max-w-none bg-bg p-0 text-ink shadow-[0_0_80px_rgb(6_17_33/0.3)] backdrop:bg-night/45 open:animate-[slide_320ms_var(--ease-out)]"
+      /* taste-skill-ignore: dialog */ className="fixed inset-y-0 right-0 left-auto m-0 h-dvh max-h-none w-[min(28rem,100vw)] max-w-none bg-bg p-0 text-ink shadow-[0_0_80px_rgb(6_17_33/0.3)] backdrop:bg-black/40 open:animate-[slide_320ms_var(--ease-out)]"
     >
       <div className="flex h-full flex-col">
         <div className="flex items-center justify-between px-6 pt-6 pb-4">
           <h2 id="cart-title" className="text-lead font-extrabold tracking-[-0.03em]">
-            Your cart{t.count ? `, ${t.count} ${t.count === 1 ? "item" : "items"}` : ""}
+            Your bag{t.count ? `, ${t.count} ${t.count === 1 ? "item" : "items"}` : ""}
           </h2>
-          <button type="button" onClick={() => openCart(false)} className="h-11 px-3 font-semibold hover:text-accent" aria-label="Close cart">
+          <button type="button" onClick={() => openCart(false)} className="h-11 px-3 font-semibold hover:text-accent" aria-label="Close bag">
             Close
           </button>
         </div>
@@ -45,8 +45,8 @@ export function CartDrawer() {
             <p className="text-small font-semibold">
               {t.toFree > 0 ? `${money(t.toFree, shop.currency)} more for free shipping` : "Free shipping on this order"}
             </p>
-            <div className="mt-2 h-1.5 bg-surface" aria-hidden="true">
-              <div className="h-full origin-left bg-accent transition-transform duration-500 ease-[var(--ease-out)]" style={{ transform: `scaleX(${progress})` }} />
+            <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-surface" aria-hidden="true">
+              <div className="h-full origin-left bg-ink transition-transform duration-500 ease-[var(--ease-out)]" style={{ transform: `scaleX(${progress})` }} />
             </div>
           </div>
         )}
@@ -59,7 +59,7 @@ export function CartDrawer() {
             return (
               <li key={`${l.slug}-${l.colour}-${l.size}`} className="flex gap-4 py-4 animate-[rise_320ms_var(--ease-out)]">
                 <Link href={`/product/${p.slug}/`} onClick={() => openCart(false)} className="shrink-0">
-                  <Picture name={image} alt={`${p.name} in ${l.colour}`} sizes="88px" className="h-[110px] w-[88px] object-cover" width={88} height={110} />
+                  <Picture name={image} alt={`${p.name} in ${l.colour}`} sizes="88px" className="h-[110px] w-[88px] rounded-[var(--radius)] bg-tile object-cover" width={88} height={110} />
                 </Link>
                 <div className="grow">
                   <div className="flex justify-between gap-3 font-semibold">
@@ -70,7 +70,7 @@ export function CartDrawer() {
                     {l.colour} · {l.size}
                   </p>
                   <div className="mt-2 flex items-center gap-1">
-                    <button type="button" className="grid h-9 w-9 place-items-center bg-surface font-semibold active:scale-95" onClick={() => setQty(l, l.qty - 1)} aria-label={`One fewer ${p.name}`}>
+                    <button type="button" className="grid h-9 w-9 place-items-center rounded-full bg-surface font-semibold active:scale-95" onClick={() => setQty(l, l.qty - 1)} aria-label={`One fewer ${p.name}`}>
                       −
                     </button>
                     <span className="w-8 text-center tabular-nums" aria-live="polite">
@@ -78,7 +78,7 @@ export function CartDrawer() {
                     </span>
                     <button
                       type="button"
-                      className="grid h-9 w-9 place-items-center bg-surface font-semibold active:scale-95 disabled:opacity-40"
+                      className="grid h-9 w-9 place-items-center rounded-full bg-surface font-semibold active:scale-95 disabled:opacity-40"
                       onClick={() => setQty(l, l.qty + 1)}
                       disabled={l.qty >= (p.stock[l.size] ?? 0)}
                       aria-label={`One more ${p.name}`}
@@ -124,7 +124,7 @@ export function CartDrawer() {
               Check out
             </Link>
             <Link href="/cart/" onClick={() => openCart(false)} className="link mt-3 block text-center text-small font-semibold">
-              View cart and add a promo code
+              View bag and add a promo code
             </Link>
           </div>
         )}

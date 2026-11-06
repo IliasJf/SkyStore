@@ -21,7 +21,6 @@ export function ProductView({ slug }: { slug: string }) {
   const [colour, setColour] = useState(0);
   const [size, setSize] = useState<string | null>(p.sizes.length === 1 ? p.sizes[0] : null);
   const [error, setError] = useState("");
-  const [picture, setPicture] = useState(0);
   const guide = useRef<HTMLDialogElement>(null);
 
   const moment = MOMENTS.find((m) => m.product === p.slug);
@@ -30,7 +29,6 @@ export function ProductView({ slug }: { slug: string }) {
     ...(moment ? [{ name: moment.image, alt: moment.alt, w: 1024, h: 1536 }] : []),
     ...(EXTRAS[p.slug] ?? []),
   ];
-  const shown = pictures[Math.min(picture, pictures.length - 1)];
   const left = size ? p.stock[size] : undefined;
   const saved = wishlist.includes(p.slug);
   const related = PRODUCTS.filter((x) => x.slug !== p.slug && x.slot !== p.slot && x.conditions.some((c) => p.conditions.includes(c))).slice(0, 4);
@@ -48,31 +46,27 @@ export function ProductView({ slug }: { slug: string }) {
 
   return (
     <div className="pb-[var(--gap-section)]">
-      <div className="wrap grid gap-10 pt-8 lg:grid-cols-[7fr_5fr] lg:gap-16 lg:pt-12">
-        <div className="grid gap-3 sm:grid-cols-[80px_1fr] lg:sticky lg:top-[calc(var(--header-h)+1.5rem)] lg:self-start">
-          <div className="order-2 flex gap-2 sm:order-1 sm:flex-col" role="group" aria-label="Pictures">
-            {pictures.map((x, i) => (
-              <button key={x.name} type="button" onClick={() => setPicture(i)} aria-pressed={picture === i} aria-label={`Show picture ${i + 1}: ${x.alt}`} className="w-20 opacity-60 transition-opacity hover:opacity-100 aria-pressed:opacity-100">
-                <Picture name={x.name} alt="" sizes="80px" className="aspect-[4/5] w-full object-cover" width={80} height={100} />
-              </button>
-            ))}
-          </div>
-          <div className="order-1 overflow-hidden bg-surface sm:order-2">
-            <Picture key={shown.name} name={shown.name} alt={shown.alt} priority sizes="(min-width: 1024px) 55vw, 100vw" width={shown.w} height={shown.h} className="aspect-[4/5] max-h-[52svh] w-full animate-[rise_420ms_var(--ease-out)] object-cover sm:max-h-none" />
-          </div>
+      <div className="wrap grid gap-8 pt-6 lg:grid-cols-[7fr_4fr] lg:gap-12 lg:pt-10">
+        {/* Every picture at once on a desktop, two across; on a phone, a row to swipe. */}
+        <div className="no-scrollbar -mx-[var(--margin)] flex snap-x snap-mandatory gap-2 overflow-x-auto px-[var(--margin)] lg:mx-0 lg:grid lg:grid-cols-2 lg:overflow-visible lg:px-0" role="group" aria-label="Pictures">
+          {pictures.map((x, i) => (
+            <div key={`${x.name}-${i}`} className={`w-[86%] shrink-0 snap-start overflow-hidden rounded-[var(--radius)] bg-tile sm:w-[60%] lg:w-auto ${pictures.length % 2 && i === 0 ? "lg:col-span-2" : ""}`}>
+              <Picture name={x.name} alt={x.alt} priority={i === 0} sizes="(min-width: 1024px) 30vw, 86vw" width={x.w} height={x.h} className="aspect-[4/5] w-full object-cover" />
+            </div>
+          ))}
         </div>
 
-        <div data-reveal>
+        <div data-reveal className="lg:sticky lg:top-[calc(var(--header-h)+1.5rem)] lg:self-start">
           <p className="font-semibold text-muted">
             <Link href={`/shop/?cat=${p.category}`} className="hover:text-ink">
               {CATEGORIES.find((c) => c.id === p.category)?.name}
             </Link>
           </p>
-          <h1 className="display mt-2 text-[clamp(3rem,6vw,5.5rem)]">{p.name}</h1>
+          <h1 className="display mt-2 text-[clamp(2.25rem,4vw,3.5rem)]">{p.name}</h1>
           <p className="mt-4 text-lead">
             <Price usd={p.price} className="font-extrabold" />
           </p>
-          <p className="mt-6 max-w-[42ch] text-lead leading-snug">{p.blurb}</p>
+          <p className="mt-5 max-w-[42ch] leading-relaxed">{p.blurb}</p>
 
           {p.colours.length > 1 && (
             <fieldset className="mt-8">
@@ -84,16 +78,13 @@ export function ProductView({ slug }: { slug: string }) {
                   <button
                     key={c.name}
                     type="button"
-                    onClick={() => {
-                      setColour(i);
-                      setPicture(0);
-                    }}
+                    onClick={() => setColour(i)}
                     aria-pressed={colour === i}
                     aria-label={c.name}
-                    className="grid h-12 w-12 place-items-center transition-transform active:scale-90"
+                    className="grid h-12 w-12 place-items-center rounded-full transition-transform active:scale-90"
                     style={{ outline: colour === i ? "2px solid var(--ink)" : "none", outlineOffset: 2 }}
                   >
-                    <span className="h-10 w-10" style={{ background: c.hex }} />
+                    <span className="h-10 w-10 rounded-full border border-black/10" style={{ background: c.hex }} />
                   </button>
                 ))}
               </div>
@@ -123,7 +114,7 @@ export function ProductView({ slug }: { slug: string }) {
                         setSize(s);
                         setError("");
                       }}
-                      className="min-h-12 bg-surface px-2 font-semibold transition-[background-color,transform] duration-150 hover:bg-[#c4cdd2] active:scale-95 disabled:cursor-not-allowed disabled:text-[#8a96a2] disabled:line-through aria-pressed:bg-ink aria-pressed:text-bg"
+                      className="min-h-12 rounded-[var(--radius)] border border-line px-2 font-semibold transition-[border-color,background-color,transform] duration-150 hover:border-ink active:scale-95 disabled:cursor-not-allowed disabled:bg-surface disabled:text-[#bbb] disabled:line-through aria-pressed:border-ink aria-pressed:bg-ink aria-pressed:text-white"
                       aria-label={n === 0 ? `${s}, sold out` : s}
                     >
                       {s.replace("US ", isShoe ? "" : "US ")}
@@ -143,24 +134,24 @@ export function ProductView({ slug }: { slug: string }) {
             </p>
           )}
 
-          <div className="mt-4 flex gap-2">
-            <button type="button" className="btn grow" onClick={add}>
-              Add to cart
+          <div className="mt-4 grid gap-2">
+            <button type="button" className="btn min-h-14 w-full" onClick={add}>
+              Add to bag
             </button>
-            <button type="button" className="btn btn--plain" onClick={() => toggleWish(p.slug)} aria-pressed={saved}>
-              {saved ? "Saved" : "Save"}
+            <button type="button" className="btn btn--plain min-h-14 w-full" onClick={() => toggleWish(p.slug)} aria-pressed={saved}>
+              {saved ? "Saved ♥" : "Save for later ♡"}
             </button>
           </div>
 
           <ul className="mt-10 grid gap-2">
             {p.details.map((d) => (
               <li key={d} className="flex gap-3">
-                <span aria-hidden="true" className="mt-[0.6em] h-1.5 w-1.5 shrink-0 bg-accent" />
+                <span aria-hidden="true" className="mt-[0.6em] h-1.5 w-1.5 shrink-0 rounded-full bg-ink" />
                 {d}
               </li>
             ))}
           </ul>
-          <p className="mt-8 bg-surface p-5 text-small leading-relaxed">
+          <p className="mt-8 rounded-[var(--radius)] bg-surface p-5 text-small leading-relaxed">
             Free shipping over $100, otherwise $8. Arrives in 2 to 4 days in Europe and North America. Return it within {TERMS.returnDays} days for any reason; size swaps are free.
           </p>
         </div>
@@ -171,7 +162,7 @@ export function ProductView({ slug }: { slug: string }) {
           <h2 id="related-title" className="head" data-reveal>
             Wear it with
           </h2>
-          <ul className="mt-10 grid grid-cols-2 gap-x-4 gap-y-10 lg:grid-cols-4">
+          <ul className="mt-8 grid grid-cols-2 gap-x-3 gap-y-10 lg:grid-cols-4">
             {related.map((r) => (
               <li key={r.slug}>
                 <ProductCard product={r} />

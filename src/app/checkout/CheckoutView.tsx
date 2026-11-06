@@ -93,7 +93,7 @@ export function CheckoutView() {
     return (
       <div className="wrap pt-12 pb-[var(--gap-section)] md:pt-16">
         <h1 className="display text-[clamp(3.5rem,9vw,8rem)]">Checkout</h1>
-        <div className="mt-12 bg-surface p-10">
+        <div className="mt-12 rounded-[var(--radius)] bg-surface p-10">
           <p className="text-lead font-semibold">There&rsquo;s nothing to check out yet.</p>
           <Link href="/shop/" className="btn btn--ink mt-6">
             Browse the shop
@@ -129,7 +129,7 @@ export function CheckoutView() {
           }}
         >
           {errorList.length > 0 && (
-            <div ref={summary} tabIndex={-1} role="alert" className="bg-[#f6d6d2] p-5">
+            <div ref={summary} tabIndex={-1} role="alert" className="rounded-[var(--radius)] bg-[#fdecea] p-5">
               <p className="font-semibold">
                 {errorList.length === 1 ? "One thing needs fixing" : `${errorList.length} things need fixing`} before you can pay:
               </p>
@@ -188,7 +188,7 @@ export function CheckoutView() {
 
           <fieldset className="grid gap-5">
             <legend className="mb-2 text-lead font-extrabold tracking-[-0.03em]">Payment</legend>
-            <p className="bg-dawn p-4 text-small">
+            <p className="rounded-[var(--radius)] bg-surface p-4 text-small">
               <strong>This is a demo shop.</strong> Pay with the test card <span className="font-semibold tabular-nums">4242 4242 4242 4242</span>, any future date and any 3 digits. Nothing is charged and no card details are stored.
             </p>
             {field("card", { inputMode: "numeric", autoComplete: "off", placeholder: "4242 4242 4242 4242" })}
@@ -198,12 +198,12 @@ export function CheckoutView() {
             </div>
           </fieldset>
 
-          <button type="submit" className="btn w-full text-lead" disabled={busy} aria-busy={busy}>
+          <button type="submit" className="btn min-h-14 w-full text-lead" disabled={busy} aria-busy={busy}>
             {busy ? "Processing payment…" : `Pay ${money(t.total, shop.currency)}`}
           </button>
         </form>
 
-        <aside aria-labelledby="order-summary" className="self-start bg-surface p-6 lg:sticky lg:top-[calc(var(--header-h)+1.5rem)]">
+        <aside aria-labelledby="order-summary" className="self-start rounded-[var(--radius)] bg-surface p-6 lg:sticky lg:top-[calc(var(--header-h)+1.5rem)]">
           <h2 id="order-summary" className="text-lead font-extrabold tracking-[-0.03em]">
             Your order
           </h2>

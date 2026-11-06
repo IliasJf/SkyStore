@@ -42,7 +42,7 @@ export function Showcase() {
 
         <div className="relative mt-3 grid w-full max-w-[70vw] grid-cols-1 items-start gap-6 md:max-w-none md:grid-cols-[1fr_30vw_1fr]">
           <div className="hidden md:block" />
-          <div className="relative aspect-[4/5] max-h-[52svh] w-full overflow-hidden bg-surface md:max-h-none">
+          <div className="relative aspect-[4/5] max-h-[52svh] w-full overflow-hidden rounded-[var(--radius)] bg-tile md:max-h-none">
             <Picture
               name="p-runner-white"
               alt="The Horizon Runner: an off-white knit running shoe with a grey foam sole and an orange heel tab"

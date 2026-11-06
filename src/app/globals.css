@@ -1,43 +1,40 @@
 @import "tailwindcss";
 
 /*
- * SkyStore. The palette is the sky through one day: the haze the product
- * photos sit on is the page's ground, night is the ink, and the signal orange
- * blue of a clear noon is the one accent, kept for actions.
+ * SkyStore, sports-brand edition: a white floor, black type and black pill
+ * buttons, big photographs doing the talking. The product photos keep the
+ * sky-haze they were shot on (--tile), and the noon blue is the one accent.
  */
 :root {
-  --bg: #dfe6ea;
-  --surface: #d2dade;
-  --ink: #0f1b2d;
-  --muted: #4a5868;
+  --bg: #ffffff;
+  --surface: #f5f5f5;
+  --tile: #dfe6ea;
+  --ink: #111111;
+  --muted: #6b6b6b;
+  --line: #e5e5e5;
   --accent: #2563d9;
   --accent-ink: #ffffff;
-  --night: #061121;
-  --night-ink: #f4f6f8;
+  --night: #111111;
+  --night-ink: #ffffff;
   --dawn: #f6d1b8;
 
-  --step-small: clamp(0.8125rem, 0.79rem + 0.1vw, 0.875rem);
-  --step-body: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
-  --step-lead: clamp(1.25rem, 1.1rem + 0.7vw, 1.625rem);
-  --step-head: clamp(2rem, 1.3rem + 3.2vw, 4rem);
-  --step-display: clamp(4.5rem, 13vw, 13rem);
+  --step-small: 0.875rem;
+  --step-body: 1rem;
+  --step-lead: clamp(1.125rem, 1rem + 0.5vw, 1.375rem);
+  --step-head: clamp(2rem, 1.2rem + 3vw, 3.75rem);
+  --step-display: clamp(3.25rem, 1rem + 8vw, 9rem);
 
-  --margin: clamp(1rem, 2.4vw, 2rem);
-  /* The sticky header: two rows on a phone (links scroll under the bar), one from 768px. */
-  --header-h: 6.25rem;
-  --gap-section: clamp(7.5rem, 14vw, 13rem);
+  --margin: clamp(1rem, 3vw, 3rem);
+  /* The sticky bar under the promo strip. */
+  --header-h: 3.75rem;
+  --gap-section: clamp(4.5rem, 8vw, 7.5rem);
+  --radius: 0.5rem;
 
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
   --dur-fast: 160ms;
   --dur: 320ms;
   --dur-slow: 700ms;
-}
-
-@media (min-width: 768px) {
-  :root {
-    --header-h: 4rem;
-  }
 }
 
 @theme inline {
@@ -49,6 +46,8 @@
   --color-night: var(--night);
   --color-night-ink: var(--night-ink);
   --color-dawn: var(--dawn);
+  --color-tile: var(--tile);
+  --color-line: var(--line);
   --font-sans: var(--font-schibsted), ui-sans-serif, system-ui, sans-serif;
   --text-small: var(--step-small);
   --text-body: var(--step-body);
@@ -68,8 +67,7 @@ body {
   color: var(--ink);
   font-family: var(--font-sans);
   font-size: var(--step-body);
-  line-height: 1.45;
-  letter-spacing: -0.01em;
+  line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
 ::selection {
@@ -77,7 +75,7 @@ body {
   color: var(--accent-ink);
 }
 :focus-visible {
-  outline: 3px solid var(--accent);
+  outline: 2px solid var(--ink);
   outline-offset: 3px;
 }
 img {
@@ -85,16 +83,19 @@ img {
   max-width: 100%;
 }
 
+/* Big, heavy, uppercase: the voice of a sports brand. */
 .display {
   font-weight: 800;
-  letter-spacing: -0.05em;
-  line-height: 0.88;
+  letter-spacing: -0.035em;
+  line-height: 0.9;
+  text-transform: uppercase;
 }
 .head {
   font-size: var(--step-head);
   font-weight: 800;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.03em;
   line-height: 0.95;
+  text-transform: uppercase;
   text-wrap: balance;
 }
 .wrap {
@@ -113,48 +114,62 @@ img {
   top: 0.75rem;
 }
 
-/* ---------- buttons: one shape, square corners ---------- */
+/* ---------- buttons: black pills ---------- */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  min-height: 3.25rem;
+  min-height: 3rem;
   padding: 0 1.5rem;
+  border-radius: 999px;
   font-weight: 600;
   font-size: var(--step-body);
-  background: var(--accent);
-  color: var(--accent-ink);
-  border: 0;
+  background: var(--ink);
+  color: #fff;
+  border: 1.5px solid var(--ink);
   cursor: pointer;
   transition:
     transform var(--dur-fast) var(--ease-out),
-    background-color var(--dur-fast) var(--ease-out);
+    background-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out);
 }
 .btn:hover {
-  background: #1d4fb3;
+  background: #3a3a3a;
+  border-color: #3a3a3a;
 }
 .btn:active {
   transform: scale(0.97);
 }
 .btn[disabled] {
-  opacity: 0.45;
+  opacity: 0.4;
   cursor: not-allowed;
   transform: none;
 }
 .btn--ink {
   background: var(--ink);
-  color: var(--bg);
+  color: #fff;
 }
-.btn--ink:hover {
-  background: #22324b;
-}
+/* Outline pill, for the second action. */
 .btn--plain {
-  background: var(--surface);
+  background: transparent;
   color: var(--ink);
+  border-color: #cacacb;
 }
 .btn--plain:hover {
-  background: #c4cdd2;
+  background: transparent;
+  border-color: var(--ink);
+}
+/* White pill, over photographs. */
+.btn--light {
+  background: #fff;
+  color: var(--ink);
+  border-color: #fff;
+}
+.btn--light:hover {
+  background: #e5e5e5;
+  border-color: #e5e5e5;
 }
 .link {
   text-decoration: underline;
@@ -163,10 +178,10 @@ img {
   transition: color var(--dur-fast) var(--ease-out);
 }
 .link:hover {
-  color: var(--accent);
+  color: var(--muted);
 }
 
-/* ---------- forms keep their own lines ---------- */
+/* ---------- forms ---------- */
 .field {
   display: grid;
   gap: 0.4rem;
@@ -179,10 +194,10 @@ img {
   width: 100%;
   min-height: 3.25rem;
   padding: 0 1rem;
-  background: #eef2f4;
+  background: #fff;
   color: var(--ink);
-  border: 1.5px solid #9aa7b2;
-  border-radius: 0;
+  border: 1.5px solid #cacacb;
+  border-radius: var(--radius);
   font: inherit;
   transition: border-color var(--dur-fast) var(--ease-out);
 }
@@ -190,17 +205,31 @@ img {
   border-color: var(--ink);
 }
 .input:focus-visible {
-  outline: 3px solid var(--accent);
+  outline: 2px solid var(--ink);
   outline-offset: 0;
   border-color: var(--ink);
 }
 .input[aria-invalid="true"] {
-  border-color: #b3261e;
+  border-color: #d43f21;
 }
 .error {
-  color: #a3221b;
+  color: #c2300f;
   font-size: var(--step-small);
   font-weight: 600;
+}
+
+/* Photos fade in as they arrive instead of popping into grey boxes. */
+.pic {
+  transition: opacity 500ms var(--ease-out), transform 600ms var(--ease-out);
+}
+.js .pic:not(.is-loaded) {
+  opacity: 0;
+}
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 
 /* ---------- entrances: the parts of each section rise in turn ---------- */
@@ -228,6 +257,10 @@ img {
 }
 @keyframes slide {
   from { transform: translateX(100%); }
+  to { transform: none; }
+}
+@keyframes slidein {
+  from { transform: translateX(-100%); }
   to { transform: none; }
 }
 @keyframes bump {
