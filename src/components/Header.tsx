@@ -92,7 +92,7 @@ export function Header() {
           </button>
         </div>
       </div>
-      <nav aria-label="Main, small screens" className="wrap flex gap-5 overflow-x-auto pb-3 font-semibold md:hidden">
+      <nav aria-label="Main, small screens" className="wrap flex gap-5 overflow-x-auto pb-3 font-semibold [scrollbar-width:none] md:hidden">
         {LINKS.map((l) => (
           <Link key={l.href} href={l.href} className="shrink-0">
             {l.label}

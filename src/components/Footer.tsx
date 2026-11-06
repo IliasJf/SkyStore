@@ -63,7 +63,11 @@ export function Footer() {
           <a className="link" href="https://commons.wikimedia.org/wiki/File:Cumulus.ogv">
             “Cumulus”
           </a>
-          , CC BY 2.5, via Wikimedia Commons.
+          , CC BY 2.5, via Wikimedia Commons. Weather by{" "}
+          <a className="link" href="https://open-meteo.com">
+            Open-Meteo
+          </a>
+          .
         </p>
       </div>
     </footer>

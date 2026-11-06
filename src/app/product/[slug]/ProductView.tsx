@@ -58,7 +58,7 @@ export function ProductView({ slug }: { slug: string }) {
             ))}
           </div>
           <div className="order-1 overflow-hidden bg-surface sm:order-2">
-            <Picture key={shown.name} name={shown.name} alt={shown.alt} priority sizes="(min-width: 1024px) 55vw, 100vw" width={shown.w} height={shown.h} className="aspect-[4/5] w-full animate-[rise_420ms_var(--ease-out)] object-cover" />
+            <Picture key={shown.name} name={shown.name} alt={shown.alt} priority sizes="(min-width: 1024px) 55vw, 100vw" width={shown.w} height={shown.h} className="aspect-[4/5] max-h-[52svh] w-full animate-[rise_420ms_var(--ease-out)] object-cover sm:max-h-none" />
           </div>
         </div>
 

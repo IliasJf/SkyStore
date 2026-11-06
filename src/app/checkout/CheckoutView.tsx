@@ -124,6 +124,8 @@ export function CheckoutView() {
             await new Promise((r) => setTimeout(r, 1100));
             const order = placeOrder({ email: values.email, name: values.name, address: values.address, city: values.city, country: values.country, last4: values.card.slice(-4) });
             router.push(`/order/?id=${order.id}`);
+            // The receipt starts at its heading, wherever the form was scrolled to.
+            window.scrollTo({ top: 0 });
           }}
         >
           {errorList.length > 0 && (

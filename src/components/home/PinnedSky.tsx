@@ -59,6 +59,7 @@ export function PinnedSky() {
               style={{ background: m.ground, color: m.ink }}
             >
               <div className="mx-auto w-full pt-[22vw] md:absolute md:inset-x-0 md:top-[9vh] md:bottom-0 md:w-[37vw] md:pt-0">
+                <div className="h-full overflow-hidden">
                 <Picture
                   name={m.image}
                   alt={m.alt}
@@ -66,8 +67,10 @@ export function PinnedSky() {
                   sizes="(min-width: 768px) 37vw, 100vw"
                   width={1024}
                   height={1536}
-                  className="aspect-[2/3] w-full object-cover md:h-full md:object-[50%_35%]"
+                  className="aspect-[2/3] max-h-[46svh] w-full animate-[drift_26s_var(--ease-in-out)_infinite_alternate] object-cover object-[50%_30%] md:h-full md:max-h-none md:object-[50%_35%]"
+                  style={{ animationDelay: `${i * -5}s` }}
                 />
+                </div>
               </div>
 
               <div data-reveal className="mt-5 grid gap-5 md:absolute md:inset-x-[var(--margin)] md:bottom-8 md:mt-0 md:grid-cols-[1fr_auto] md:items-end">

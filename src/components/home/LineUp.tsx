@@ -55,9 +55,9 @@ export function LineUp() {
           const items = PRODUCTS.filter((p) => p.category === c.id);
           if (!items.length) return null;
           return (
-            <div key={c.id} data-reveal>
+            <div key={c.id}>
               <h3 className="sticky top-[var(--header-h)] z-[1] bg-dawn pt-12 pb-3 text-lead font-semibold text-accent">{c.name}</h3>
-              <ul>
+              <ul data-reveal>
                 {items.map((p) => (
                   <li key={p.slug}>
                     <Link

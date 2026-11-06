@@ -27,7 +27,7 @@ export const FAQ = [
 export function Questions() {
   return (
     <section aria-labelledby="faq-title">
-      <div className="flex min-h-[30svh] items-end bg-accent px-[var(--margin)] pb-8 md:min-h-[40svh] md:pb-12">
+      <div data-reveal className="flex min-h-[30svh] items-end bg-accent px-[var(--margin)] pb-8 md:min-h-[40svh] md:pb-12">
         <h2 id="faq-title" className="display text-[13vw] text-white md:text-[7vw]">
           Before you order
         </h2>
