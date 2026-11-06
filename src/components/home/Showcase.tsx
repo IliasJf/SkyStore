@@ -1,72 +1,56 @@
-"use client";
-
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
 import { Picture } from "../Picture";
 import { Price } from "../Price";
 
-/**
- * One frame, three distances: the Horizon Runner whole, then its knit upper,
- * then the foam and the heel tab, as the reader scrolls past three markers.
- */
-const STAGES = [
-  { scale: 1, origin: "50% 50%" },
-  { scale: 1.8, origin: "38% 46%" },
-  { scale: 3.2, origin: "86% 52%" },
+const SPECS = [
+  ["36 mm", "foam under the heel"],
+  ["8 mm", "heel-to-toe drop"],
+  ["255 g", "in a US 9"],
 ];
 
+/** The hero product, sports-brand style: the shoe large, a close-up beside it, the facts and one way to buy. */
 export function Showcase() {
-  const [stage, setStage] = useState(0);
-  const markers = useRef<(HTMLDivElement | null)[]>([]);
-
-  useEffect(() => {
-    const io = new IntersectionObserver(
-      (entries) => entries.forEach((e) => e.isIntersecting && setStage(Number((e.target as HTMLElement).dataset.stage))),
-      { rootMargin: "-50% 0px -50% 0px" },
-    );
-    markers.current.forEach((m) => m && io.observe(m));
-    return () => io.disconnect();
-  }, []);
-
-  const s = STAGES[stage];
   return (
-    <section aria-labelledby="runner-title" className="relative h-[300vh] bg-bg">
-      {[0, 1, 2].map((i) => (
-        /* taste-skill-ignore: invisible scroll marker */ <div key={i} ref={(el) => void (markers.current[i] = el)} data-stage={i} className="absolute h-px w-full" style={{ top: `${i * 100 + 50}vh` }} aria-hidden="true" />
-      ))}
-      <div className="sticky top-[var(--header-h)] flex h-[calc(100svh-var(--header-h))] flex-col items-center justify-center overflow-hidden px-[var(--margin)]">
-        {/* The sentence arrives in halves around the frame; read aloud, it is one heading. */}
-        <h2 id="runner-title" aria-label="Built for the long way" className="display text-center text-[13vw] md:text-[7vw]">
-          Built for
-        </h2>
-
-        <div className="relative mt-3 grid w-full max-w-[70vw] grid-cols-1 items-start gap-6 md:max-w-none md:grid-cols-[1fr_30vw_1fr]">
-          <div className="hidden md:block" />
-          <div className="relative aspect-[4/5] max-h-[52svh] w-full overflow-hidden rounded-[var(--radius)] bg-tile md:max-h-none">
+    <section aria-labelledby="runner-title" className="wrap pt-[var(--gap-section)]">
+      <div className="grid gap-3 lg:grid-cols-[7fr_5fr]">
+        <div className="grid grid-cols-[3fr_2fr] gap-3" data-reveal>
+          <div className="overflow-hidden rounded-[var(--radius)] bg-tile">
             <Picture
               name="p-runner-white"
               alt="The Horizon Runner: an off-white knit running shoe with a grey foam sole and an orange heel tab"
-              sizes="(min-width: 768px) 30vw, 70vw"
-              className="h-full w-full object-cover transition-transform duration-700 ease-[var(--ease-out)]"
-              style={{ transform: `scale(${s.scale})`, transformOrigin: s.origin }}
+              sizes="(min-width: 1024px) 35vw, 60vw"
+              className="aspect-[4/5] h-full w-full object-cover"
             />
           </div>
-          <p
-            aria-hidden="true"
-            data-on={stage >= 1}
-            className="display relative z-10 -mt-[0.3em] text-center text-[13vw] transition-[opacity,transform] duration-700 ease-[var(--ease-out)] data-[on=false]:translate-y-4 data-[on=false]:opacity-0 md:col-start-2 md:row-start-2 md:-mt-[0.45em] md:text-[7vw] md:whitespace-nowrap"
-          >
-            the long way
-          </p>
-          <div className="mx-auto max-w-[28ch] text-center transition-[opacity,transform] duration-700 ease-[var(--ease-out)] data-[on=false]:translate-y-4 data-[on=false]:opacity-0 md:col-start-3 md:row-start-1 md:mx-0 md:text-left" data-on={stage >= 2}>
-            <p className="font-semibold">Horizon Runner</p>
-            <p className="mt-2">36 mm of foam under the heel, an 8 mm drop and a knit upper that moves with your foot. 255 g in a US 9.</p>
-            <p className="mt-4 flex items-center justify-center gap-4 md:justify-start">
-              <Price usd={148} className="text-lead font-extrabold" />
-              <Link href="/product/horizon-runner/" className="link font-semibold">
-                See sizes
-              </Link>
-            </p>
+          <div className="overflow-hidden rounded-[var(--radius)] bg-tile">
+            <Picture name="detail-knit" alt="Close-up of the knit upper and the orange heel tab" sizes="(min-width: 1024px) 23vw, 40vw" className="h-full w-full object-cover" />
+          </div>
+        </div>
+
+        <div className="flex flex-col justify-between rounded-[var(--radius)] bg-ink p-6 text-white sm:p-10" data-reveal>
+          <div>
+            <p className="text-small font-semibold text-[#b5b5b5]">Featured · Shoes</p>
+            <h2 id="runner-title" className="display mt-3 text-[clamp(2.5rem,1.4rem+3.6vw,4.5rem)]">
+              Built for the long way
+            </h2>
+            <p className="mt-5 max-w-[38ch] text-[#d4d4d4]">The Horizon Runner: a soft, high-rebound road shoe with a knit upper that moves with your foot. Made for daily miles.</p>
+          </div>
+          <dl className="mt-10 grid grid-cols-3 gap-4 border-t border-white/15 pt-6">
+            {SPECS.map(([n, label]) => (
+              <div key={label}>
+                <dt className="sr-only">{label}</dt>
+                <dd>
+                  <span className="block text-[1.75rem] leading-none font-extrabold tracking-[-0.03em]">{n}</span>
+                  <span className="mt-1 block text-small text-[#b5b5b5]">{label}</span>
+                </dd>
+              </div>
+            ))}
+          </dl>
+          <div className="mt-8 flex flex-wrap items-center gap-4">
+            <Link href="/product/horizon-runner/" className="btn btn--light">
+              Shop the Horizon Runner
+            </Link>
+            <Price usd={148} className="text-lead font-extrabold" />
           </div>
         </div>
       </div>

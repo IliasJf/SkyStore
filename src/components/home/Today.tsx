@@ -130,13 +130,14 @@ export function Today() {
           <ul className="grid gap-2" key={picks.map((p) => p.product.slug).join()}>
             {picks.map(({ product, why }, i) => (
               <li key={product.slug} className="animate-[rise_480ms_var(--ease-out)_both]" style={{ animationDelay: `${i * 70}ms` }}>
-                <Link href={`/product/${product.slug}/`} className="group grid grid-cols-[88px_1fr_auto] items-center gap-5 rounded-[var(--radius)] bg-[#1c1c1c] p-3 pe-5 transition-colors duration-200 hover:bg-[#2a2a2a] sm:grid-cols-[112px_1fr_auto]">
-                  <Picture name={product.colours[0].image} alt={product.name} sizes="112px" className="aspect-[4/5] w-full object-cover" width={112} height={140} />
+                <Link href={`/product/${product.slug}/`} className="group grid grid-cols-[80px_1fr] items-center gap-x-4 rounded-[var(--radius)] bg-[#1c1c1c] p-3 pe-5 transition-colors duration-200 hover:bg-[#2a2a2a] sm:grid-cols-[112px_1fr_auto] sm:gap-x-5">
+                  <Picture name={product.colours[0].image} alt={product.name} sizes="112px" className="row-span-2 aspect-[4/5] w-full rounded-md object-cover sm:row-span-1" width={112} height={140} />
                   <span>
-                    <span className="block text-lead font-extrabold tracking-[-0.03em]">{product.name}</span>
+                    <span className="block text-[1.0625rem] leading-tight font-extrabold tracking-[-0.02em] sm:text-lead">{product.name}</span>
                     <span className="block text-[#b5b5b5]">{why.charAt(0).toUpperCase() + why.slice(1)}</span>
                   </span>
-                  <span className="text-right">
+                  {/* On a phone the price sits under the name, so names don't wrap three times. */}
+                  <span className="flex items-baseline gap-3 sm:block sm:text-right">
                     <Price usd={product.price} className="block font-semibold" />
                     <span className="mt-1 block text-small font-semibold text-[#9cc2ff] transition-transform duration-200 group-hover:translate-x-1">Choose size →</span>
                   </span>
