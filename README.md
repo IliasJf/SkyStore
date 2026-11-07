@@ -1,4 +1,5 @@
 # SkyStore
+[![Checks](https://github.com/IliasJf/SkyStore/actions/workflows/ci.yml/badge.svg)](https://github.com/IliasJf/SkyStore/actions/workflows/ci.yml)
 
 Running and training kit for every sky: tees, shells, joggers, shoes and watches, picked for the weather outside.
 
@@ -32,6 +33,7 @@ Running and training kit for every sky: tees, shells, joggers, shoes and watches
 npm install
 npm run dev     # http://localhost:3000/SkyStore/
 npm run build   # static site in out/
+npm test        # 32 tests: weather-to-outfit picks, bag totals, prices, catalogue
 ```
 
 `npm run build` also runs `scripts/flatten-segments.mjs`. Next.js 16 writes each page's prefetch file in nested folders, while the browser asks for one dotted file name; the script copies each file to the name that's requested, so links prefetch correctly on a static host.
